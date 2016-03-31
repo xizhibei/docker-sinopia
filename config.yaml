@@ -20,6 +20,8 @@ auth:
 uplinks:
   npmjs:
     url: https://registry.npmjs.org/
+  cnpmjs:
+    url: https://registry.npm.taobao.org/
 
 packages:
   '@*/*':
@@ -40,7 +42,7 @@ packages:
     publish: $authenticated
 
     # if package is not available locally, proxy requests to 'npmjs' registry
-    proxy: npmjs
+    proxy: cnpmjs
 
 # log settings
 logs:

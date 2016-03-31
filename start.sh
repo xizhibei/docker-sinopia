@@ -1,6 +1,11 @@
 #!/bin/bash
-if [ ! -f config.yaml ]; then
-  cp /tmp/config.yaml /opt/sinopia/config.yaml
+
+sinopia_cfg_file=/opt/sinopia/config.yaml
+
+if [ ! -f ${sinopia_cfg_file} ]; then
+  cp /etc/config.default.yaml ${sinopia_cfg_file}
 fi
-cat /opt/sinopia/config.yaml
-node /opt/sinopia/node_modules/sinopia/bin/sinopia --config /opt/sinopia/config.yaml
+
+cat ${sinopia_cfg_file}
+
+sinopia --config ${sinopia_cfg_file}
